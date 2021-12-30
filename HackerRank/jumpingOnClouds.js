@@ -28,4 +28,8 @@ function jumpingOnClouds(c) {
 
 }
 
+//you can do this with a more traditional looking for loop, but it 
+//looks really shitty and the call of the problem is looking into the 
+//future of the array to determine the behavior before getting to that
+//future. This is the pattern that calls for a do while loop. 
 
