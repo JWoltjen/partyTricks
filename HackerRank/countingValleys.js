@@ -4,27 +4,28 @@ A valley is a sequence of consecutive steps below sea level, starting with a ste
 Given the sequence of up and down steps during a hike, find and print the number of valleys walked through.
 */
 
-function countingValleys(steps, path) {
+function countingValleys(n, s) {
 
-    //assign a global valley count and an elevation
-    const valleyCount = 0
-    const elevation = 0
+    /*the most important part of the problem is setting up the variables needing to be kept track of. */
 
-    //loop through each step in the path
+    let valleys = 0; 
+    let elevation = 0; 
 
-    //what is the relationship between a step and a path? 
-    //a path is made up of steps
-    //we know that each journey begins and ends at sea level 
-    //so the number of Us and Ds needs to be the same and even
-    for(let i = 0; i < steps.length; i++){
-        if (path[i] === "D"){
-            //check whether we're entering a valley
-            //if we are entering a valley, valleyCount++
-            //if we are simply going down further, elevation--
+    //iterate over the path string n number of times
+    for(let i = 0; i < n; i++) {
+        if (s[i] == "D"){
+            elevation--; 
+        //if it's going down, simply decrement 
         } else {
-
+            //otherwise we need to check each time if the current elevation is about to go out of a valley
+            if (elevation == -1){
+                valleys++
+                //in which case we increment valley count
+            }
+            elevation++
+            //either way we're going up
         }
+        
     }
-
-    //return total valleys walked through
+    return valleys; 
 }
