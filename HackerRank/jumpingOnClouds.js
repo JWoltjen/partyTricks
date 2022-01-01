@@ -10,17 +10,17 @@ function jumpingOnClouds(c) {
     //set global variables
     //Because we're using a do while loop, we keep track of the index externally.
     let jumps = 0; 
-    let ind = 0; 
+    let i = 0; 
 
         do{
             jumps++; 
             //we know we have to jump, the question is how far
 
-            ind = c[ind + 2] == 0 ? ind + 2 : ind + 1
+            i = c[i + 2] == 0 ? i + 2 : i + 1
 
             //a ternary operator lets us look into the future of the array: is index + 2 safe? If yes, increment the index by 2, if it's not safe, only increment the index by 1. 
 
-        } while( ind < c.length -1); 
+        } while( i < c.length -1); 
         //the while portion sets the scope of the loop. 
         //as long as ind is less than the clouds in the array, perform
         //a jump
@@ -33,3 +33,16 @@ function jumpingOnClouds(c) {
 //future of the array to determine the behavior before getting to that
 //future. This is the pattern that calls for a do while loop. 
 
+
+
+function countDemClouds (c) {
+    let jumps = 0
+    let i = 0
+
+    do{
+        jumps++
+        c([i+2] === 0 ? i + 2 : i + 1)
+    }while(i<c.length-1)
+
+    return jumps
+}
