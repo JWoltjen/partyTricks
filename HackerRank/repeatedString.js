@@ -30,7 +30,6 @@ function repeatedStrings(s, n) {
         }
     //we simply iterate over this substring and increment count for each 'a' found
     }
-
     //return what is asked
     return count
 }
