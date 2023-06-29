@@ -15,16 +15,22 @@ int d: the number of rotations
 */
 
 const leftRotation = (nums, rotation) => {
-    // create variable to return
-    let rotatedArray = [];
-    // create for loop to iterate over the original array
-    for(let i = 0; i<nums.length; i++){
-        // calculate the new index of each element by adding the rotation value
-        // to the current index (i) and taking the modulus of the array length
-        // This ensures that the index wraps around when it exceeds the array length!
-        let newIndex = (i + rotation) % nums.length;
-        // assign the value at the new index to the corresponding index in rotatedArray
-        rotatedArray[i] = nums[newIndex];
-    }
-    return rotatedArray
+  // They key to this problem is to calculate effective rotations using modulus (avoid unnecessary repetitions)
+  // if the number of rotations is less than the length, it's just that number, if it's more, it's the remainder.
+  // This greatly simplifies the rest of the problem. So really, this is testing your knowledge of the power of % operator.
+  const rotations = rotation % nums.length; 
+  // create the array to be returned
+  const rotatedArray = [];
+
+  // Copy the rotated elements to the new array 
+  for (let i = rotations; i < nums.length; i++) {
+    rotatedArray.push(nums[i]);
+  }
+
+  // Copy the remaining elements to the new array
+  for (let i = 0; i < rotations; i++) {
+    rotatedArray.push(nums[i]);
+  }
+
+  return rotatedArray;
 }
