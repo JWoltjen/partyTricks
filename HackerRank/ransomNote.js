@@ -39,7 +39,7 @@ const canConstruct = (magazine, ransomNote) => {
     // populate the ransomMap
     for (let i = 0; i < ransomNote.length; i++){
         const char = ransomNote[i];
-        ransomNote.set(char, (ransomMap.get(char) || 0) + 1);
+        ransomMap.set(char, (ransomMap.get(char) || 0) + 1);
     }
     // check if the ransom note can be constructed
     for (const [char, count] of ransomMap){
