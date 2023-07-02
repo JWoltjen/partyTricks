@@ -1,50 +1,38 @@
-function sockMerchant(n, ar) {
-    
-    //choose your weapons
-     let numberOfPairs = 0
-     let sockTypeCount = new Map(); 
+/*Problem Statement:
+John works at a clothing store. He has a large pile of socks that he must pair by color for sale. 
+Given an array of integers representing the color of each sock, 
+determine how many pairs of socks with matching colors there are.
 
-     //In this problem, the let sockTypeCount = new Map() allows us to create a new Map that will set key value pairs for storage, sort of like having a drawer that is labeled with a word and has a given number of contents inside. 
+John can only sell complete pairs of socks. He cannot sell an odd number of socks or socks with mismatched colors.
 
-     //Since the problem gives us an array of socks, we make the drawer without first knowing where to put all the socks we may encounter in the array. 
+Example:
 
-     // So let's iterate through the socks, and for each ar[i], place the sock into the corresponding drawer. 
+Input: [10, 20, 20, 10, 10, 30, 50, 10, 20]
+Output: 3
+*/
 
-     for(let i = 0; i< n; i++){
-         const sock = ar[i]
-         
-         if(!sockTypeCount.has(sock)){
-             sockTypeCount.set(sock, 1)
+const sockMerchant = (socks) => {
+    // create an empty object to store the count of each color
+    const drawer = {};
 
-    //If our sock drawer has not seen this sock before, make a new shelf in the drawer with this particular sock as its key, and set the value of that shelf to 1
+    // iterate through the socks array and count the occurences of each color
+    for (let i = 0; i < socks.length; i++){
+        const color = socks[i];
+        // if the color already exists in the drawer, increase it by one 
+        if(drawer[color]){
+            drawer[color++]
+        } else {
+            // otherwise, intialize that color at 1
+            drawer[color] = 1;
+        }
+    }
 
-         } else {
-             const newCount = sockTypeCount.get(sock) + 1; 
-             sockTypeCount.set(sock, newCount); 
-         }
-    //If we have seen this type of sock before, create a new count of the total number of socks by getting the previously encountered number, adding one, and setting the sockCount to the newCount. 
-     }
-
-     // count pairs of socks
-     for(let type of sockTypeCount.keys()){
-         const pairs = sockTypeCount.get(type); 
-         
-         numberOfPairs += Math.floor(pairs/2); 
-     }
-     //The loop says for each shelf in the sock drawer, return me the total number of socks, divide that number  by two and round down, and add that number to to the running tally of sock pairs found in the sock drawer. Keep in mind that "type" is an arbitrary label here. We can call it anything we want as long as we sockTypeCount.get("whatever") in the next line. 
-
-     //return them
-     return numberOfPairs
+    // count the number of match pairs
+    let pairCount = 0;
+    for (const color in drawer){
+        let count = drawer[color]
+        // the number of pairs is the whole number of the count divided by 2
+        pairCount += Math.floor(count /2)
+    }
+    return pairCount
 }
-
-// There is a large pile of socks that must be paired by color. Given an array of integers representing the color of each sock, determine how many pairs of socks with matching colors there are.
-
-
-//What is a Map? A Map is a data structure where a key is mapped to a value. It's used to quickly lookup values based on their corresponding keys. Only one key can map to a value -- no duplicates.
-
-//Applications: Maps are super popular because they are fast. Holding key/value pairs has many applications, such as: Caching--keys are URLs and values are website content. Indexing--keys are words, and values are the list of documents where they are found. Spell Checking--keys are English words. Networks--the key is an IP address/port number, while the value is the corresponding application to be run when address is accessed.
-
-//Maps v. Arrays: Maps and arrays are similar. In an aray, the key/index is always a number, while the value in a Map can be anything. Both an array and map are veryfast for getting values by key in constant time O(1). A map is an array internally. It translates the key into an array's index using a hash function. That's why it's also called a Hash Map. 
-
-
-  
