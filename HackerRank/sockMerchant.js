@@ -17,6 +17,7 @@ const sockMerchant = (socks) => {
 
     // iterate through the socks array and count the occurences of each color
     for (let i = 0; i < socks.length; i++){
+        // again, semantically naming the variable helps conceptualize the problem
         const color = socks[i];
         // if the color already exists in the drawer, increase it by one 
         if(drawer[color]){
@@ -36,3 +37,17 @@ const sockMerchant = (socks) => {
     }
     return pairCount
 }
+
+/*
+Commentary
+
+The key to this problem is knowing that it requires an object.
+The first time I tried the problem, that wasn't obvious to me. 
+Also I find that semantically naming the object something like drawer
+makes a lot more sense than naming it some bullshit like colorCount.
+It's a lot easier to understand what drawer[color] is asking for than
+colorCount[color], in my opinion.
+
+Finally, never underestimate the importance of using Math. operators correctly when 
+the situation calls for it. 
+*/
