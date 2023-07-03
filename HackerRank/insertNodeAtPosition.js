@@ -20,8 +20,8 @@ Complete the function InsertNodeAtPosition.
 It must return a reference to the head node of your finished list.
 
 InsertNodeAtPosition has the following parameters:
-head: a singlyLinkedListNode pointer to the head of the list
-data: an integer value ot inser as data in your new node
+head: a singlyLinkedListNode pointing to the head of the list
+data: an integer value to insert as data in your new node
 position: an integer position to insert the new node, zero based indexing
 
 returns: singlyLinkedListNode pointer: a reference to the head of the
@@ -47,4 +47,33 @@ explanation
 the initial linked list is 16-13-7. insert 1 at the psoition 2
 which currently has 7 in it. the updated linked list is 
 16 -> 13 -> 1 -> 7. 
+*/
+
+const InsertNodeAtPosition = (head, data, position) => {
+    let newNode = new SinglyLinkedListNode(data);
+    
+    // If inserting at the head
+    if (position === 0) {
+        newNode.next = head;
+        return newNode;
+    }
+    
+    // Find the node before the insertion point
+    let current = head;
+    for(let i = 0; i < position - 1; i++) {
+        current = current.next;
+    }
+
+    // Insert the new node
+    newNode.next = current.next;
+    current.next = newNode;
+
+    return head;
+}
+
+
+/*
+Commentary
+
+
 */

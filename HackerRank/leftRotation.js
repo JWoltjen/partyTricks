@@ -12,7 +12,32 @@ rotLeft has the following parameter(s):
 
 int a[n]: the array to rotate
 int d: the number of rotations
+
+let nums = [1, 2, 3, 4, 5]
+let rotation = 3
 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const leftRotation = (nums, rotation) => {
   // They key to this problem is to calculate effective rotations using modulus (avoid unnecessary repetitions)
