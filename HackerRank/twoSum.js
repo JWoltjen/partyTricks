@@ -6,33 +6,6 @@ Your task is to implement the TwoSum function and test it with different inputs.
 */
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const twoSum = (array, target) => {
     
     //create a map to store key value pairs
@@ -44,6 +17,7 @@ const twoSum = (array, target) => {
         let complement = target - array[i];
         // if the map has the complement return it and the index of the array
         if(map.has(complement) && map.get(complement) !== i){
+            //this returns the index of the complement from the map, and the current index (together their values add up to the target)
             return [map.get(complement), i]
         } else {
             // otherwise, add the index as the key and its value as the value within the map

@@ -23,6 +23,34 @@ string magazine[m]: the words in the magazine
 string note[n]: the words in the ransom note
 */
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const canConstruct = (magazine, ransomNote) => {
     // set up the map
     let wordMap = new Map();
