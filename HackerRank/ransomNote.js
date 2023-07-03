@@ -24,52 +24,38 @@ string note[n]: the words in the ransom note
 */
 
 const canConstruct = (magazine, ransomNote) => {
-    // create the frequency maps
-    const magazineMap = new Map();
-    const ransomMap = new Map();
-
-    // populate the magazineMap
-    for (let i = 0; i < magazine.length; i++){
-        const char = magazine[i];
-        // setting the value of the key char to the present value (if it exists) + 1 
-        // or 0, if it doesn't exist + 1
-        magazineMap.set(char, (magazineMap.get(char) || 0) + 1);
-    }
-
-    // populate the ransomMap
-    for (let i = 0; i < ransomNote.length; i++){
-        const char = ransomNote[i];
-        ransomMap.set(char, (ransomMap.get(char) || 0) + 1);
-    }
-    // check if the ransom note can be constructed
-    for (const [char, count] of ransomMap){
-        if(!magazineMap.has(char) || magazineMap.get(char) < count){
-            return false;
+    // set up the map
+    let wordMap = new Map();
+    
+    // count each word in the magazine
+    for(let word of magazine) {
+        if(wordMap.has(word)) {
+            // increase the word count each time the word is encountered after the first time
+            wordMap.set(word, wordMap.get(word) + 1);
+        } else {
+            // set the word count to one the first time the word is encountered
+            wordMap.set(word, 1);
         }
     }
-    return true; 
+
+    // check if each word in the note is in the magazine
+    for(let word of ransomNote) {
+        // The frequency check is necessary because a word could be in the magazine, 
+        // but it might have been already used up for previous words in the ransom note.
+        if(wordMap.has(word) && wordMap.get(word) > 0) {
+            // decrease the word count by one each time it is used
+            wordMap.set(word, wordMap.get(word) - 1);
+        } else {
+            console.log('No');
+            return;
+        }
+    }
+
+    console.log('Yes');
 }
 
 /*
 Commentary
-The hardest part of this problem for me is the destructuring assignment
-for (const [char, count] of ransomMap). I know that we are looping over
-the entries of the ransomMap. Each entry consists of a key (char) and a 
-value (count). During the destructuring assignment, the 'count' variable
-is created and assigned to the value of the frequency count for the corresponding
-char. 
-So to summarize, the 'count' variable is created implicitly during the destructuring assignment.
 
-The second hardest thinga bout this problem is recognizing the appropriate
-datatype to use. What makes Map() the best data type to use for this problem?
-
-Maps provide: efficient lookup--they store key/values
-they perseve the insertion order of entries. They handle duplicate keys--
-In this problem, it's possible to have duplicate characters in the magazine and 
-ransom note.Maps do not allow duplicate keys. Each key in a Map must be unique.
-If you try to add a key-value pair with a key that already exists in the Map, 
-it will overwrite the previous value associated with that key.
-By using "Map", we can accurately count the frequency of each character,
-even if they appear multiple times. 
 
 */
