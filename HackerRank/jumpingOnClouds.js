@@ -8,7 +8,8 @@ Determine the minimum number of jumps it will take to jump from the starting pos
 It is always possible to win the game.
 
 For each game, you will get an array of clouds numbered 0 if they are safe or 1 if they must be avoided.
-
+Example
+c = [0, 1, 0, 0, 0, 1, 0]
 */
 
 function jumpingOnClouds(c) {

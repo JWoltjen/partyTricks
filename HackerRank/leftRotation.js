@@ -22,12 +22,16 @@ const leftRotation = (nums, rotation) => {
   // create the array to be returned
   const rotatedArray = [];
 
-  // Copy the rotated elements to the new array 
+  // set the index to the number of rotations, say 4.
+  // if 4 is less than nums.length, say 5, i++
   for (let i = rotations; i < nums.length; i++) {
+    // push 4 into the beginning of the array, then we stop because 5 !> 5
     rotatedArray.push(nums[i]);
   }
 
   // Copy the remaining elements to the new array
+  // we are now starting at zero and FINISHING at the number of rotations, 
+  // this ensures we take caree of the remaining elements in the array
   for (let i = 0; i < rotations; i++) {
     rotatedArray.push(nums[i]);
   }

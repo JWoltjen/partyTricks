@@ -11,6 +11,32 @@ Input: [10, 20, 20, 10, 10, 30, 50, 10, 20]
 Output: 3
 */
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const sockMerchant = (socks) => {
     // create an empty object to store the count of each color
     const drawer = {};
