@@ -10,7 +10,30 @@ It is always possible to win the game.
 For each game, you will get an array of clouds numbered 0 if they are safe or 1 if they must be avoided.
 Example
 c = [0, 1, 0, 0, 0, 1, 0]
+return should be 3
 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function jumpingOnClouds(c) {
    
@@ -40,16 +63,3 @@ function jumpingOnClouds(c) {
 //future of the array to determine the behavior before getting to that
 //future. This is the pattern that calls for a do while loop. 
 
-
-
-function countDemClouds (c) {
-    let jumps = 0
-    let i = 0
-
-    do{
-        jumps++
-        c([i+2] === 0 ? i + 2 : i + 1)
-    }while(i<c.length-1)
-
-    return jumps
-}

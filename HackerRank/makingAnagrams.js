@@ -15,10 +15,23 @@ Any characters can be deleted from either of the strings.
 Example
 a = 'cde'
 b = 'dcf'
-
-Detele e from a and f from b so the remaining strings are anagrams. This takes two 
+return should be 2
+Delete e from a and f from b so the remaining strings are anagrams. This takes two 
 character deletions. 
 */
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const makeAnagram = (a, b) => {
     let count = new Array(26).fill(0);

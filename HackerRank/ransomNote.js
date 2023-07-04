@@ -8,8 +8,8 @@ if he can replicate his ransom note exactly using whole words from the magazine;
 
 
 Example: 
-Magazine: "attack at dawn"
-Note: "Attack at dawn"
+let magazine = "attack at dawn"
+let note = "Attack at dawn"
 
 The magazine has all the right words but there is a case mismatch.
 The answer is "No."

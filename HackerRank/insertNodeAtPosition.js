@@ -33,6 +33,15 @@ Each of the next n lines contains an integer SinglyLinkedListNode[i].data.
 The next line contains an integer data, the data of the node that is to be inserted.
 The last line contains an integer position.
 
+For your reference:
+ *
+ * SinglyLinkedListNode {
+ *     int data;
+ *     SinglyLinkedListNode next;
+ * }
+ *
+ *
+
 sample input
 3
 16
@@ -47,30 +56,41 @@ explanation
 the initial linked list is 16-13-7. insert 1 at the psoition 2
 which currently has 7 in it. the updated linked list is 
 16 -> 13 -> 1 -> 7. 
+
+head = 16, data = 1 and position = 2
 */
 
 const InsertNodeAtPosition = (head, data, position) => {
+    // instantiate a new singlylinkedListNode with its data as a param
     let newNode = new SinglyLinkedListNode(data);
     
     // If inserting at the head
     if (position === 0) {
+        // set the old head to the next node after our new node
         newNode.next = head;
         return newNode;
     }
     
     // Find the node before the insertion point
+    // current is like a finger pointing to the current node we're looking at 
     let current = head;
+    // we use a for loop to move "current" along the list one node at a time
     for(let i = 0; i < position - 1; i++) {
+        // after this loop, current is pointing to the node with '13' (position -1)
         current = current.next;
     }
 
     // Insert the new node
+    // we want to insert newNode after current, but before current's next node
+    // 
     newNode.next = current.next;
     current.next = newNode;
 
     return head;
 }
 
+// now the linked list looks like this:
+// 16 -> 13 -> 1 -> 7
 
 /*
 Commentary
