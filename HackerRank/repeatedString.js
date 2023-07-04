@@ -2,6 +2,34 @@
 Given an integer, n, find and print the number of letter a's in the first n letters of the infinite string.*/
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function repeatedStrings(s, n) {
     //declare global variables
     let count = 0; 

@@ -1,9 +1,43 @@
 /*
 Problem: Given an array of integers nums, write a function called TwoSum 
 that returns an array of two numbers such that they add up to a specific target value.
-You may assume that each input would have exactly one solution, and you may not use the same element twice.
+You may assume that each input would have exactly one solution, 
+and you may not use the same element twice.
 Your task is to implement the TwoSum function and test it with different inputs.
+
+let nums = [2, 7, 11, 15];
+let target = 9;
 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 const twoSum = (array, target) => {
