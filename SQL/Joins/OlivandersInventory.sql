@@ -1,4 +1,5 @@
 /*
+CHALLENGING
 Harry Potter and his friends are at Ollivander's with Ron, finally replacing Charlie's old broken wand.
 Hermione decides the best way to choose is by determining the minimum number of gold galleons needed 
 to buy each non-evil wand of high power and age. 
@@ -63,4 +64,7 @@ This result is then used in the outer query's WHERE clause to filter the wands.
 
 In simpler terms, the subquery is saying "For each combination of age and power, find the minimum coins_needed among the wands that are not evil". 
 This value is then used to filter the wands in the outer query.
+
+Thus, when applied to the main query, it allows the selection of the least expensive wand for each combination of power and age.
+This means that for each unique combination of power and age, only one wand (the one that needs the least coins) will be selected.
 */
