@@ -1,14 +1,20 @@
 
+/*
+Query the following two values from the STATION table:
 
-SELECT ROUND(SUM(LAT_N), 2) AS lat, ROUND(SUM(LONG_W), 2) AS lon
-FROM STATION
+The sum of all values in LAT_N rounded to a scale of 2 decimal places.
+The sum of all values in LONG_W rounded to a scale of 2 decimal places.
+
+*/
+
+SELECT 
+    CAST(SUM(LAT_N) AS DECIMAL(10,2)) AS lat, 
+    CAST(SUM(LONG_W) AS DECIMAL(10,2)) AS lon
+FROM 
+    STATION
 
 
 /*
 COMMENTARY
 
-I really struggled with this one, first trying to use the decimal syntax, 
-then failing to read the output requirements below the example tables.
-Won't someone please just give me a job so i don't have to do sql query practice
-all day. 7.5.23
 */

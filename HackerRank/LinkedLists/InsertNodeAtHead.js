@@ -21,6 +21,7 @@ The next n lines contain an integer each, the elements to be inserted, one per f
 */
 function insertNodeAtHead(head, data) {
     const newNode = new SinglyLinkedListNode(data);
+    // if it's empty simply set the head to the newNode.
     if (head === null) {
       head = newNode;
     } else {
