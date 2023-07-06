@@ -42,6 +42,9 @@ function reverse(llist) {
 
 /*
 COMMENTARY
+This code doesn't make sense without a visual representation:
+https://www.youtube.com/watch?v=S9kMVEUg-x4
+
 In this solution, we maintain three pointers: current, prev, and next.
 
 We start with current pointing to the head of the original linked list, prev pointing to null, 
