@@ -34,4 +34,13 @@ The printLinkedList function iterates through the linked list starting from the 
 At each node, it prints the data using console.log() 
 and updates the current node to the next node using current = current.next.
  The loop continues until it reaches the end of the linked list (i.e., current becomes null).
+
+
+
+We enter a loop that continues until current becomes null. 
+this loop allows us to visit each node in the linked list.
+
+After printing the data, we update the current variable 
+to point to the next node in the list using current = current.next. 
+This effectively moves the current pointer to the next node in the linked list.
 */
