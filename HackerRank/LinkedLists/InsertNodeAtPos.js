@@ -28,10 +28,12 @@ function insertNodeAtPosition(head, data, position) {
     
     // If inserting at the head
     if (position === 0) {
+        //simply assign newNode.next to head (moving old head one over)
         newNode.next = head;
+        //return the newNode because it's now the head node
         return newNode;
     }
-    
+    // otherwise we have to iterate across the linked list
     // Find the node before the insertion point
     let current = head;
     for(let i = 0; i < position - 1; i++) {
@@ -39,7 +41,7 @@ function insertNodeAtPosition(head, data, position) {
     }
 
     // once the loop finishes, it means we've reached the node before POSITION
-    // Insert the new node
+    // assign newNode.next to the old current.next-->Move over one so we can insert
     newNode.next = current.next;
     // current.next refers to the next attribute of the node before the desired insertion point (current).
     current.next = newNode;
