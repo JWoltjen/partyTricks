@@ -1,3 +1,1 @@
-Sock Merchant
-
-
+These are my solved problems in Hackerrank. I have provided commentary and annotations where I think they're useful. If this helps anyone struggling with these problems, then I'm happy to help share my work.
