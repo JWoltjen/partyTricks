@@ -19,7 +19,9 @@ function getNode(head, positionFromTail) {
         pointer1 = pointer1.next;
     }
 
-    // Move both pointers at the same speed. When pointer1 reaches the end, pointer2 will be positionFromTail nodes from the end
+    // Move both pointers at the same speed. 
+    // When pointer1 reaches the end, pointer2 will be 
+    // positionFromTail nodes from the end
     while (pointer1 !== null) {
         pointer1 = pointer1.next;
         pointer2 = pointer2.next;
