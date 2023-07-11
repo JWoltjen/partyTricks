@@ -74,6 +74,6 @@ makes a lot more sense than naming it some bullshit like colorCount.
 It's a lot easier to understand what drawer[color] is asking for than
 colorCount[color], in my opinion.
 
-Finally, never underestimate the importance of using Math. operators correctly when 
-the situation calls for it. 
+Finally, never underestimate the importance of using Math. operators correctly 
+when the situation calls for it. 
 */
