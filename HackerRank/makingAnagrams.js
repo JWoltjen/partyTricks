@@ -1,6 +1,8 @@
 /*
 A student is taking a cryptography class and has found anagrams to be very useful. 
-Two strings are anagrams of each other if the first string's letters can be rearranged to form the second string.
+Two strings are anagrams of each other if the first string's letters can be rearranged 
+to form the second string.
+
 In other words, both strings must contain the same exact letters in the same exact frequency.
 For example, bacdc and dcbac are anagrams, but bacdc and dcbad are not.
 
@@ -83,8 +85,9 @@ The more complicated way of using Array(26).fill(0) that we've set
 forth above is more esoteric to beginners but has a linear time
 complexity and should therefore be favored.
 
-the keys here are knowing how to set up an array with New Array(26).fill(0) -I've never seen this before
-and then being comfortable with the charCodeAt syntax to set up the unique value for each element in the count
+the keys here are knowing how to set up an array with New Array(26).fill(0)--I've never 
+seen this before and then being comfortable with the charCodeAt syntax to set up the 
+unique value for each element in the count.
 
 Yes i understand that the solution is 100% computer brain and not intuitive at all. 
 So it goes.

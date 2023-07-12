@@ -1,7 +1,43 @@
 /*
 Your favorite performer, our favorite performer, actually. 
 Quicksort.
+
+Set up a sorting algorithm that sorts a given array of numbers quickly
+
+example
+
+let arr = [3, 10, 1, 19, 23, 4, 15, 20]
 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function quicksort(arr) {
     if (arr.length <= 1) {
