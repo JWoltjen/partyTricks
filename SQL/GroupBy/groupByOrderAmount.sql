@@ -17,6 +17,8 @@ ORDERS Table:
 
 */
 
+
+
 SELECT CUSTOMER_ID, COUNT(*) AS OrderCount, SUM(AMOUNT) AS TotalAmount
 FROM ORDERS
 GROUP BY CUSTOMER_ID
@@ -38,5 +40,14 @@ This groups the rows based on the unique customer IDs.
 The ORDER BY clause is used to sort the results based on the TotalAmount 
 column in descending order. This means that customers with higher total 
 order amounts will appear first in the result set.
+
+Expected Output:
+
+| CUSTOMER_ID | OrderCount | TotalAmount |
+|-------------|------------|-------------|
+| 100         | 3          | 275         |
+| 102         | 1          | 200         |
+| 101         | 2          | 150         |
+
 
 */

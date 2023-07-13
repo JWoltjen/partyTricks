@@ -16,6 +16,23 @@ SALES Table:
 */
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 SELECT PRODUCT_ID, SUM(AMOUNT) AS TotalAmount, COUNT(*) AS TransactionCount
 FROM SALES
 GROUP BY PRODUCT_ID
@@ -35,5 +52,12 @@ So here, the COUNT(*) function counts the number of sales transactions for each 
 It doesn't need to specify a particular column because it counts all the rows defined by 
 GROUP BY clause. The result will be the number of rows associated with each product.
 
+Expected Output:
+
+| Product_ID | SalesCount | TotalAmount |
+|------------|------------|-------------|
+| 100        | 3          | 275         |
+| 102        | 1          | 200         |
+| 101        | 2          | 150         |
 
 */

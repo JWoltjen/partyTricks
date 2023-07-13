@@ -14,11 +14,11 @@ STUDENTS Table:
 | 5          | Robert   | Male   | 21  |
 | 6          | Jennifer | Female | 22  |
 
-
 */
-SELECT GENDER, AVG(Age) AS AverageAge
+SELECT GENDER, ROUND(AVG(AGE), 2) AS AverageAge
 FROM STUDENTS
-Group By STUDENTS.GENDER
+GROUP BY GENDER
+
 
 
 
