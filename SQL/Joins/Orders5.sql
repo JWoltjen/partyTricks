@@ -45,13 +45,17 @@ Consider these tables:
 
 And the problem statement:
 
-Write an SQL query to fetch the region name (RegionName), the manager's name (ManagerName), and the total sales amount (TotalSales) for each region in the second quarter of the year (April, May, June). The total sales amount for a region should be calculated as the sum of `Price * Quantity` for all products in all orders that employees from that region handled during that quarter. Order the result by total sales in descending order.
+Write an SQL query to fetch the region name (RegionName), the manager's name (ManagerName), 
+and the total sales amount (TotalSales) for each region in the second quarter of the year 
+(April, May, June). 
 
-Hint: This problem adds complexity by requiring filtering by a date range and joining across five tables. You will also need to calculate a product within the `SUM` function. Use the `YEAR()` and `MONTH()` functions to extract the year and month from the `OrderDate`, respectively. 
+The total sales amount for a region should be calculated as the sum of `Price * Quantity` 
+for all products in all orders that employees from that region handled during that quarter. 
+Order the result by total sales in descending order.
+
+Hint: This problem adds complexity by requiring filtering by a date range and joining across five tables. 
+You will also need to calculate a product within the `SUM` function. Use the `YEAR()` and `MONTH()` functions to extract the year and month from the `OrderDate`, respectively. 
 
 Remember to graphically visualize how these tables are connected to help you write the query.
-
-Give it a shot!
-
 
 */

@@ -63,3 +63,10 @@ const houseCount = (s, t, a, b, apples, oranges) => {
     console.log(orangeCount);
 }
 
+/*
+Commentary
+The first time I tried this I made it way too complicated, although I was on the right track.
+I tried to make variables for the ranges at which a fruit could fall and be included, instead
+of thinking hey, i can take care of that in the conditions inside of the for loop. 
+
+*/
