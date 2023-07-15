@@ -61,3 +61,13 @@ quarter of the year 2023.
 Order the result by total quantity in descending order.
 
 */
+
+SELECT a.AuthorName, g.GenreName, SUM(od.Quantity) AS TotalQuantity
+FROM Author a 
+INNER JOIN Books b ON b.AuthorID = a.AuthorID 
+INNER JOIN Genre g ON g.GenreID = b.GenreID 
+INNER JOIN OrderDetails od ON od.BookId = b.BookID
+INNER JOIN Orders o ON od.OrderID = o.OrderID
+WHERE YEAR(o.OrderDate) = 2023 AND MONTH(o.OrderDate) BETWEEN 1 AND 3
+GROUP BY a.AuthorName, g.GenreName
+ORDER BY TotalQuantity DESC
