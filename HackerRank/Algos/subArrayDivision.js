@@ -35,17 +35,6 @@ and s is the number of integers in the array
 we are returning the number of ways this can be divided?
 
 */
-const subArrayDivision = (s, d, m) => {
-  let matches = 0;
-  for(let i = 0; i<s.length; i++){
-    let subArr = s.slice(i, s[i] + m)
-    let sum = subArr.reduce((a,b)=>(a+b))
-    if(sum == d){
-      matches++
-    }
-  }
-  return matches;
-}
 
 
 
