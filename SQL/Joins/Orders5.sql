@@ -54,8 +54,19 @@ for all products in all orders that employees from that region handled during th
 Order the result by total sales in descending order.
 
 Hint: This problem adds complexity by requiring filtering by a date range and joining across five tables. 
-You will also need to calculate a product within the `SUM` function. Use the `YEAR()` and `MONTH()` functions to extract the year and month from the `OrderDate`, respectively. 
+You will also need to calculate a product within the `SUM` function. Use the `YEAR()` and `MONTH()` functions 
+to extract the year and month from the `OrderDate`, respectively. 
 
 Remember to graphically visualize how these tables are connected to help you write the query.
 
 */
+
+SELECT r.RegionName, e.ManagerName, SUM(od.Quantity * p.Price) AS TotalSales
+FROM Regions r 
+LEFT JOIN Employees e ON r.RegionID = e.RegionID
+LEFT JOIN Orders o ON e.EmployeeID = o.EmployeeID
+LEFT JOIN OrderDetails od ON o.OrderId = od.OrderId 
+LEFT JOIN Products p ON od.ProductId = p.productId
+WHERE YEAR(o.OrderDate) = 2023 AND MONTH(o.OrderDate) BETWEEN 4 AND 6
+GROUP BY r.regionName, e.ManagerName
+ORDER BY TotalSales DESC

@@ -47,4 +47,19 @@ public static int SubArrayDivision(List<int> s, int d, int m)
     return matches;
 }
 
+COMMENTARY
+1.We use Count instead of Length because this is a list, not an array. 
+
+2. GetRange(int index, int count) that returns a new List<T> 
+containing a range of elements from the original list.
+ The line List<int> subarr = s.GetRange(i, m); creates a new list 
+ called subarr that contains m elements from the original list s, 
+ starting from the index i.
+
+3. In C#, the Sum method is a LINQ extension method available for collections 
+that calculates the sum of all the elements in the collection.
+
+It's incredble how much easier it is to solve this in C# than it is with JS.
+
+
 */
