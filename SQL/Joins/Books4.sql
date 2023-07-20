@@ -29,19 +29,17 @@ Consider these tables:
 
 Problem statement:
 
-Write an SQL query to fetch the category name (CategoryName) 
+Write a SQL query to fetch the category name (CategoryName) 
 and the total quantity of books sold (TotalQuantity) for the 
 category that has sold the most number of books in the first quarter of 2023 
 (January, February, and March).
 */
 
-SELECT TOP 1 Subquery.CategoryName, Subquery.TotalQuantity
-FROM (
-    SELECT c.CategoryName, SUM(o.Quantity) as TotalQuantity
-    FROM Categories c 
-    INNER JOIN Books b ON c.CategoryID = b.CategoryID 
-    INNER JOIN Orders o ON b.BookID = o.BookID 
-    WHERE YEAR(o.OrderDate) = 2023 AND MONTH(o.OrderDate) BETWEEN 1 AND 3
-    GROUP BY c.CategoryName
-) AS Subquery
-ORDER BY Subquery.TotalQuantity DESC
+SELECT TOP 1 c.CategoryName, SUM(o.Quantity) AS TotalQuantity
+FROM Categories c 
+INNER JOIN Books b ON c.CategoryID = b.CategoryID
+INNER JOIN Orders o ON b.BookId = o.BookID 
+WHERE YEAR(o.OrderDate) = 2023 AND MONTH(o.OrderDate) BETWEEN 1 AND 3
+GROUP BY c.CategoryName
+ORDER BY TotalQuantity DESC
+

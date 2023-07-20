@@ -1,77 +1,73 @@
 /*
+`Books`:
 
-Imagine you want to find out the top-selling authors, 
-but you also want to know the total sales of all authors for comparison. 
-To do this, you'll need two subqueries: 
-    one to calculate the total sales for each author, 
-    and another to calculate the total sales for all authors.
+| BookID | BookTitle             | AuthorID | PublisherID |
+|--------|-----------------------|----------|-------------|
+| 1      | The Idiot             | 1        | 1           |
+| 2      | The Hobbit            | 2        | 1           |
+| 3      | The Old Man and the Sea | 3      | 2           |
+| 4      | Crime and Punishment  | 1        | 2           |
+| 5      | War and Peace         | 4        | 1           |
 
-Here are the tables:
+`Authors`:
 
-**Authors**
 | AuthorID | AuthorName |
 |----------|------------|
-| 1        | Author A   |
-| 2        | Author B   |
-| 3        | Author C   |
+| 1        | Dostoyevsky|
+| 2        | Tolkien    |
+| 3        | Hemingway  |
+| 4        | Tolstoy    |
 
-**Books**
-| BookID | Title     | AuthorID |
-|--------|-----------|----------|
-| 1      | Book 1    | 1        |
-| 2      | Book 2    | 1        |
-| 3      | Book 3    | 2        |
-| 4      | Book 4    | 3        |
+`Publishers`:
 
-**Orders**
-| OrderID | BookID | Quantity |
-|---------|--------|----------|
-| 1       | 1      | 100      |
-| 2       | 2      | 150      |
-| 3       | 3      | 200      |
-| 4       | 4      | 250      |
+| PublisherID | PublisherName |
+|-------------|---------------|
+| 1           | Penguin       |
+| 2           | Vintage       |
 
-Now try writing a SQL query using two subqueries: 
-    one to find the total sales for each author, 
-    and another to find the total sales for all authors. 
+`Orders`:
 
-    Remember, you want to show each author's name, their total sales, 
-    and the total sales for all authors in your result. 
+| OrderID | BookID | Quantity | OrderDate |
+|---------|--------|----------|-----------|
+| 1       | 1      | 10       | 2023-01-01|
+| 2       | 2      | 5        | 2023-02-01|
+| 3       | 3      | 8        | 2023-03-01|
+| 4       | 4      | 6        | 2023-04-01|
+| 5       | 1      | 3        | 2023-05-01|
+| 6       | 4      | 7        | 2023-06-01|
+| 7       | 5      | 9        | 2023-07-01|
+
+For the year 2023, we want to calculate the maximum quantity of books 
+sold per order for each publisher. 
+
+However, we also want to know the maximum quantity sold 
+in any single order across all publishers.
 */
 
-SELECT sq1.AuthorName, sq1.TotalSales
-FROM (
-    SELECT a.AuthorName, SUM(o.Quantity) AS TotalSales
-    FROM Author a 
-    INNER JOIN Books b ON a.AuthorID = b.AuthorID
+SELECT sq1.PublisherName, sq1.MaxPerPublisher, sq2.OverallMax
+FROM
+    (
+    SELECT p.PublisherName, MAX(o.Quantity) as MaxPerPublisher
+    FROM Publishers p
+    INNER JOIN Books b ON p.PublisherID = b.PublisherID
     INNER JOIN Orders o ON o.BookID = b.BookID
-    GROUP BY a.AuthorName
-    ) AS sq1
-CROSS JOIN (
-    SELECT SUM(o.Quantity) AS TotalSales
-    FROM Orders o 
-) AS sq2 
-ORDER BY sq1.TotalSales DESC;
-
+    WHERE YEAR (o.OrderDate) = 2023
+    GROUP BY p.PublisherName 
+    ) AS sq1 
+CROSS JOIN 
+    (
+    SELECT MAX(o.Quantity) AS OverallMax
+    FROM Orders 
+    WHERE YEAR (o.OrderDate) = 2023
+    ) as sq2 
+ORDER BY MaxPerPublisher DESC
 
 /*
-COMMENTARY
-The CROSS JOIN here produces a result that combines each row from 
-the first subquery (sq1) with each row from the second subquery (sq2). 
-Since the second subquery only has one row (the total sales for all authors), 
-this effectively adds the same value to each row from the first subquery.
+OUTPUT
+| PublisherName | MaxPerPublisher | OverallMax |
+|---------------|-----------------|------------|
+| Penguin       | 10              | 10         |
+| Vintage       | 8               | 10         |
 
-Here's what the table from that query would look like given your new data:
 
-| AuthorName | TotalSales | TotalSalesAllAuthors |
-|------------|------------|----------------------|
-| Author A   | 26         | 39                   |
-| Author B   | 5          | 39                   |
-| Author C   | 8          | 39                   |
 
-Author A has the highest individual sales at 26 books, 
-but the total sales across all authors is 39 books. 
-Now you can clearly see how each author's sales compare to 
-the total sales. 
-
-*/

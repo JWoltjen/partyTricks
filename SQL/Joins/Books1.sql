@@ -62,6 +62,7 @@ Order the result by total quantity in descending order.
 
 */
 
+
 SELECT a.AuthorName, g.GenreName, SUM(od.Quantity) AS TotalQuantity
 FROM Author a 
 INNER JOIN Books b ON b.AuthorID = a.AuthorID 

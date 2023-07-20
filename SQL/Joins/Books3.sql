@@ -43,6 +43,28 @@ then use this query as a subquery to find the author who has
 sold the maximum total quantity of books.
 */
 
+SELECT TOP 1 sq1.AuthorName, TotalQuantity
+FROM 
+    (
+    SELECT a.AuthorName, SUM(o.Quantity) as TotalQuantity
+    FROM Authors a
+    INNER JOIN Books b ON a.authorID = b.authorID
+    INNER JOIN Orders o ON o.BookID = b.BookId; 
+    WHERE YEAR(o.OrderDate)
+    GROUP BY a.AuthorName,
+    ) AS sq1 
+ORDER BY TotalQuantity DESC
+
+
+
+
+
+
+
+
+
+
+
 SELECT TOP 1 AuthorName, TotalQuantity
 FROM (
     SELECT a.AuthorName, SUM(o.Quantity) AS TotalQuantity

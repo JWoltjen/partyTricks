@@ -40,7 +40,7 @@ let target = 9;
 
 
 
-const twoSum = (array, target) => {
+const twoSum = (nums, target) => {
     
     //create a map to store key value pairs
     let map = new Map(); 

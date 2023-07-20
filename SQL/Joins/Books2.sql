@@ -92,6 +92,7 @@ Order the result by total quantity in descending order.
 
 */
 
+
 SELECT p.PublisherName, a.AuthorName, g.GenreName, SUM(od.Quantity) AS TotalSales
 FROM Publishers p 
 INNER JOIN BookPublishers bp ON bp.PublisherID = p.PublisherID 
